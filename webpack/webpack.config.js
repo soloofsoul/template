@@ -17,7 +17,13 @@ module.exports = {
         test: /\.(js|jsx)$/,
         loader: 'babel-loader',
         exclude: path.resolve(__dirname, '../node_modules/'),
-        options: { presets: ["@babel/env", "@babel/preset-react"] }
+        options: {
+          presets: [ '@babel/env', '@babel/preset-react' ]
+        }
+      },
+      {
+        test: /\.scss$/,
+        use: [ 'style-loader', 'css-loader', 'sass-loader' ]
       }
     ]
   },
@@ -26,7 +32,7 @@ module.exports = {
       path.resolve(__dirname, '../node_modules/'),
       path.resolve(__dirname, '../src/')
     ],
-    extensions: ["*", ".js", ".jsx"]
+    extensions: ['*', '.js', '.jsx', '.css']
   },
   devServer: {
     port: 3000,

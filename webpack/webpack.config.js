@@ -4,8 +4,9 @@ const HtmlWebpackPlugin = require('html-webpack-plugin');
 
 module.exports = {
   context: __dirname,
+  devtool: 'inline-source-map',
   entry: {
-    app: '../src/index.js'
+    app: '../src/index.tsx'
   },
   output: {
     path: path.resolve(__dirname, '../dist'),
@@ -24,6 +25,11 @@ module.exports = {
       {
         test: /\.scss$/,
         use: [ 'style-loader', 'css-loader', 'sass-loader' ]
+      },
+      {
+        test: /\.tsx?$/,
+        use: 'ts-loader',
+        exclude: path.resolve(__dirname, '../node_modules/')
       }
     ]
   },
@@ -32,7 +38,7 @@ module.exports = {
       path.resolve(__dirname, '../node_modules/'),
       path.resolve(__dirname, '../src/')
     ],
-    extensions: ['*', '.js', '.jsx', '.css']
+    extensions: ['*', '.js', '.jsx', '.css', '.tsx', '.ts']
   },
   devServer: {
     port: 3000,

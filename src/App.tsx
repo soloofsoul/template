@@ -1,12 +1,12 @@
-import React, { Fragment } from 'react';
+import * as React from 'react';
 import Component from './components/Component';
 
 import './style.scss';
 
 const App = () => (
-  <Fragment>
+  <React.Fragment>
     <Component />
-  </Fragment>
+  </React.Fragment>
 );
 
 export default App;

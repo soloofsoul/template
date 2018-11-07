@@ -1,0 +1,1 @@
+export const customLogic = (x: number) => x*x + x;

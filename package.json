@@ -5,7 +5,8 @@
   "private": true,
   "scripts": {
     "start:dev": "webpack-dev-server --mode development --config webpack/webpack.config.js --open",
-    "build": "webpack --mode development --config webpack/webpack.config.js"
+    "build": "webpack --mode development --config webpack/webpack.config.js",
+    "bundle-analyze": "webpack --profile --json > webpack/compilation-stats.json --mode development && webpack-bundle-analyzer webpack/compilation-stats.json"
   },
   "author": "me",
   "license": "ISC",
@@ -31,6 +32,7 @@
     "css-loader": "^1.0.1",
     "style-loader": "^0.23.1",
     "typescript": "^3.1.6",
-    "ts-loader": "^5.3.0"
+    "ts-loader": "^5.3.0",
+    "webpack-bundle-analyzer": "^3.0.3"
   }
 }

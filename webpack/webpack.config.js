@@ -3,13 +3,12 @@ const webpack = require('webpack');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 
 module.exports = {
-  context: __dirname,
   devtool: 'inline-source-map',
   entry: {
-    app: '../src/index.tsx'
+    app: './src/index.tsx'
   },
   output: {
-    path: path.resolve(__dirname, '../dist'),
+    path: path.resolve(__dirname, '../dist/'),
     filename: 'bundle.js'
   },
   module: {
@@ -36,7 +35,7 @@ module.exports = {
   resolve: {
     modules: [
       path.resolve(__dirname, '../node_modules/'),
-      path.resolve(__dirname, '../src/')
+      './src/'
     ],
     extensions: ['*', '.js', '.jsx', '.css', '.tsx', '.ts']
   },
@@ -49,7 +48,7 @@ module.exports = {
   plugins: [
     new HtmlWebpackPlugin({
       title: 'App',
-      template: '../src/index.html',
+      template: './src/index.html',
       filename: 'index.html',
       chunks: ['app'],
     }),
